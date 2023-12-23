@@ -17,6 +17,23 @@ namespace Online_Food_Ordering_System.Data
     public DbSet<Payment> Payments { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<DiscountTicket> DiscountTickets { get; set; }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+      modelBuilder.Entity<Item>()
+          .Property(e => e.Category)
+          .HasConversion<string>(); // Configure the first enum property to be stored as string
 
+      modelBuilder.Entity<Item>()
+          .Property(e => e.Type)
+          .HasConversion<string>(); // Configure the second enum property to be stored as string
+
+      modelBuilder.Entity<User>()
+          .Property(e => e.Role)
+          .HasConversion<string>();
+
+      modelBuilder.Entity<Order>()
+          .Property(e => e.Status)
+          .HasConversion<string>();
+    }
   }
 }
