@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 
 namespace Online_Food_Ordering_System.Data
 {
-  public class Payment
+  public class BaseEntity
   {
     public int Id { get; set; }
-    public int Order_Id { get; set; }
-    public int PaymentAmount { get; set; }
-    public DateTime Date { get; set; }
-    public Order Order { get; set; }
+    public DateTime Last_update { get; set; }
+
   }
 }

@@ -8,12 +8,10 @@ namespace Online_Food_Ordering_System.Data
 {
   public class FoodStoreContext : DbContext
   {
-    public FoodStoreContext(DbContextOptions options) : base(options)
+    public FoodStoreContext(DbContextOptions<FoodStoreContext> options) : base(options)
     {
     }
     public DbSet<Item> Items { get; set; }
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<Type> Types { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
     public DbSet<Payment> Payments { get; set; }
