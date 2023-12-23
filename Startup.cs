@@ -30,7 +30,8 @@ namespace Online_Food_Ordering_System
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddDbContext<FoodStoreContext>(options => options.UseNpgsql(Configuration.GetConnectionString("FoodStoreConnectionStrings")));
+      services.AddDbContext<FoodStoreContext>(options =>
+               options.UseNpgsql(Configuration.GetConnectionString("FoodStoreConnectionStrings")));
       services.AddControllers();
 
       services.AddTransient<IDiscountTicketRepository, DiscountTicketRepository>();
